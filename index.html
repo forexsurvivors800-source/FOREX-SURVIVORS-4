@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forex Survivors</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #0a0a0a;
+  color: #fff;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  width: 100%;
+  padding: 15px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(15px);
+  background: rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+nav img {
+  height: 45px;
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li {
+  list-style: none;
+  color: #aaa;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+nav ul li:hover {
+  color: #00ff88;
+}
+
+/* TICKER */
+.ticker {
+  position: fixed;
+  top: 70px;
+  width: 100%;
+  background: #111;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 999;
+}
+
+.ticker span {
+  display: inline-block;
+  padding: 10px 0;
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+}
+
+.hero-text h1 {
+  font-size: 3.5rem;
+}
+
+.hero-text span {
+  color: #00ff88;
+}
+
+.hero-text p {
+  margin-top: 20px;
+  color: #aaa;
+}
+
+/* CHART */
+.chart {
+  padding: 100px 10%;
+}
+
+.chart h2 {
+  color: #00ff88;
+  margin-bottom: 20px;
+}
+
+/* BOOK */
+.book {
+  padding: 80px 10%;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.book img {
+  width: 280px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.book img:hover {
+  transform: scale(1.05);
+}
+
+.book-text h2 {
+  margin-bottom: 20px;
+}
+
+.book-text p {
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.book-text a {
+  padding: 12px 25px;
+  background: linear-gradient(90deg, #00ff88, #ff3b3b);
+  border-radius: 5px;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* WHATSAPP */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  padding: 15px 18px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(0,255,0,0.4);
+}
+
+/* CONTACT */
+.contact {
+  padding: 40px;
+  text-align: center;
+  border-top: 1px solid #222;
+  color: #aaa;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #555;
+}
+
+@media(max-width:768px){
+  nav ul { display: none; }
+  .hero-text h1 { font-size: 2rem; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <img src="logo.png">
+  <ul>
+    <li>Home</li>
+    <li>Market</li>
+    <li>Book</li>
+    <li>Contact</li>
+  </ul>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker">
+  <span>
+    EURUSD ▲ 1.08 &nbsp;&nbsp; GBPUSD ▼ 1.27 &nbsp;&nbsp; USDJPY ▲ 149.2 &nbsp;&nbsp; XAUUSD ▼ 2025 &nbsp;&nbsp;
+  </span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Survive the Market.<br><span>Master the Game.</span></h1>
+    <p>Smart Money Concepts. Precision Entries. Real Trading Edge.</p>
+  </div>
+</section>
+
+<!-- CHART -->
+<section class="chart">
+  <h2>Live Market</h2>
+  <div id="tradingview_chart"></div>
+
+  <script src="https://s3.tradingview.com/tv.js"></script>
+  <script>
+    new TradingView.widget({
+      "width": "100%",
+      "height": 500,
+      "symbol": "FX:GBPUSD",
+      "interval": "15",
+      "theme": "dark",
+      "style": "1",
+      "hide_top_toolbar": true,
+      "container_id": "tradingview_chart"
+    });
+  </script>
+</section>
+
+<!-- BOOK -->
+<section class="book">
+  <img src="book.jpg">
+
+  <div class="book-text">
+    <h2>Forex Survivors Book</h2>
+    <p>Master liquidity, entries, and real institutional trading concepts.</p>
+    <a href="#">Buy Now</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  Contact: <strong>0750577541</strong>
+</section>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/27750577541" class="whatsapp">💬</a>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Forex Survivors
+</footer>
+
+</body>
+</html>
